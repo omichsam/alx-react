@@ -1,6 +1,4 @@
 #count {
-    position: absolute;
-    left: 200px;
-    top: 67px;
-    font-weight: bold;
+  display: inline;
+  font-weight: bold;
 }
