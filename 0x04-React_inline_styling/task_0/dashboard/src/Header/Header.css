@@ -1,12 +1,17 @@
-.App-header {
-  font-size: 1.4rem;
-  color: #e0354b;
-  display: flex;
-  align-items: center;
-  border-bottom: 3px solid #e0354b;
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-.App-header img {
-  width: 200px;
-  height: 200px;
+.Header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: #e1354b;
+  border-bottom: 4px solid #e1354b;
+}
+
+.Header-logo {
+  width: 20%;
 }

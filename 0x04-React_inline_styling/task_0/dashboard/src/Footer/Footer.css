@@ -1,7 +1,13 @@
-.App-footer {
-  font-size: 1rem;
-  padding: 1.2rem;
-  text-align: center;
-  font-style: italic;
-  border-top: 3px solid #e0354b;
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.Footer {
+  height: 6vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 4px solid #e1354b;
 }
