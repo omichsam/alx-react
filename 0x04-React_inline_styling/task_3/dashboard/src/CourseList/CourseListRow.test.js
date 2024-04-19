@@ -1,48 +1,34 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import { StyleSheetTestUtils } from 'aphrodite';
-import CourseListRow from './CourseListRow';
+import React from "react";
+import CourseListRow from "./CourseListRow";
+import { shallow } from "enzyme";
+import { StyleSheetTestUtils } from "aphrodite";
 
 beforeEach(() => {
-	StyleSheetTestUtils.suppressStyleInjection();
+  StyleSheetTestUtils.suppressStyleInjection();
+});
+afterEach(() => {
+  StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
 });
 
-afterEach(() => {
-	StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
-});;
+describe("Course List Row component test", () => {
+  it("should render without crashing", () => {
+    const wrapper = shallow(<CourseListRow textFirstCell="test" />);
 
-describe('Basic React Tests - <CourseListRow />', function() {
-	it('Should render without crashing', () => {
-		const wrapper = shallow(<CourseListRow textFirstCell='start' />);
-		expect(wrapper.exists()).toBeTruthy();
-	});
+    expect(wrapper.exists()).toBe(true);
+  });
 
-	it('When isHeader is true - Should render one cell with colspan = 2 when textSecondCell does not exist', function() {
-		const wrapper = shallow(<CourseListRow isHeader={true} textFirstCell='start' />);
-		expect(wrapper.find('th').prop('colSpan')).toEqual('2');
-	});
+  it("should render one cell with colspan = 2 when textSecondCell null", () => {
+    const wrapper = shallow(<CourseListRow isHeader={true} textFirstCell="test" textSecondCell={null} />);
 
-	it('When isHeader is true - Should render two cells when textSecondCell is present', function() {
-		const wrapper = shallow
-		(
-			<CourseListRow
-				isHeader={true}
-				textFirstCell='start'
-				textSecondCell='build'
-			/>
-		);
-		expect(wrapper.find('th')).toHaveLength(2);
-	});
+    expect(wrapper.find("tr").children()).toHaveLength(1);
+    expect(wrapper.find("tr").childAt(0).html()).toEqual('<th colSpan="2">test</th>');
+  });
 
-	it('When isHeader is false - Should render correctly two td elements within a tr element', function(){
-		const wrapper = shallow
-		(
-			<CourseListRow
-				isHeader={false}
-				textFirstCell='Txt1'
-				textSecondCell='Txt2'
-			/>
-		);
-		expect(wrapper.find('tr').children('td')).toHaveLength(2);
-	});
+  it("should render two cells when textSecondCell not null", () => {
+    const wrapper = shallow(<CourseListRow isHeader={false} textFirstCell="test" textSecondCell="test" />);
+
+    expect(wrapper.find("tr").children()).toHaveLength(2);
+    expect(wrapper.find("tr").childAt(0).html()).toEqual("<td>test</td>");
+    expect(wrapper.find("tr").childAt(1).html()).toEqual("<td>test</td>");
+  });
 });

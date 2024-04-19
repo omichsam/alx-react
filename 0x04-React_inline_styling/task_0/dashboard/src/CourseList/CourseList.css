@@ -1,16 +1,25 @@
-#CourseList {
-  width: 90%;
-  margin: 50px auto;
-  border: 1px solid lightgray;
-  border-collapse: collapse;
+table {
+  margin-top: 2em;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 1.2rem;
+  margin-bottom: 15em;
 }
 
-#CourseList th {
-  border-bottom: 1px solid lightgray;
-  height: 25px;
+th {
+  border-bottom: 1px solid #ddd;
+}
+
+th,
+td {
+  width: 80%;
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+tr:nth-child(2) {
   text-align: left;
-}
-
-#CourseList th[colspan='2'] {
-  text-align: center;
 }
