@@ -30,7 +30,7 @@
     "enzyme-adapter-react-16": "^1.15.6",
     "webpack": "^5.22.0",
     "webpack-cli": "^4.5.0",
-    "webpack-dev-server": "^3.11.2"
+    "webpack-dev-server": "^5.0.4"
   },
   "scripts": {
     "build": "webpack --mode production --config config/webpack.config.js",
